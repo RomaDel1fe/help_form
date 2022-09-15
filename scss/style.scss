@@ -1,2 +1,124 @@
 @import "reset";
 
+.conteiner{
+   padding: 50px 10px 0px;
+}
+
+.title{
+   text-align: center;
+   margin-bottom: 50px;
+   &_content{
+      font-size: 35px;
+      font-weight: 600;
+      color: #6c757d;
+   }
+}
+
+.form{
+   &_checkboxes{
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      max-width: 1040px;
+      margin: 0 auto 50px;
+      & .input_shell{
+         flex: 1 1 250px;
+         font-size: 20px;
+         font-weight: 300;
+         text-transform: uppercase;
+         text-align: center;
+         color: #6c757d;
+         max-width: 310px;
+         min-width: 300px;
+         margin: 10px 5px;
+         padding: 15px 0;
+         cursor: pointer;
+         border: 1px solid #6c757d;
+         border-radius: 50px;
+         & input{
+            display: none;
+         }
+      }
+      & .input_shell:last-child{
+         margin: 10px 60px;
+      }
+   }
+   &_inputs{
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      max-width: 1020px;
+      margin: 0 auto 50px;
+      & .input{
+         flex: 1 1 470px;
+         font-size: 18px;
+         margin: 0 5px 10px;
+         padding: 5px 10px;
+         background: #edf2f4;
+         border: none;
+         outline: none;
+         cursor: text;
+         border-bottom: 1px solid #adb5bd;
+         &::placeholder{
+            color: #adb5bd;
+         }
+         &:first-child{
+            flex-basis: 90%;
+         }
+      }
+   }
+   &_submit{
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      max-width: 1020px;
+      margin: 0 auto 50px;
+   }
+}
+.btn{
+   flex: 1 1 90%;
+   font-size: 20px;
+   font-weight: 600;
+   text-transform: uppercase;
+   padding: 20px;
+   color: #edf2f4;
+   background: #e5383b;
+   border: none;
+   border-radius: 2px;
+   cursor: pointer;
+   &:hover{
+      background: #ba181b;
+   }
+}
+
+@media all and (max-width:956px){
+   .conteiner{
+      padding-top: 25px;
+   }
+   .title{
+      margin-bottom: 25px;
+   }
+   .title_content{
+      font-size: 30px;
+   }
+   .form_checkboxes{
+      margin-bottom: 25px;
+   }
+   .form_checkboxes .input_shell{
+      font-size: 18px;
+   }
+   .form_checkboxes .input_shell:last-child{
+      margin: 10px 5px;
+   }
+   .form_inputs{
+      margin-bottom: 25px;
+   }
+}
+@media all and (max-width:1020px){
+   .form_inputs{
+      max-width: 660px;
+   }
+   .form_inputs .input{
+      flex-basis: 310px;
+   }
+}
