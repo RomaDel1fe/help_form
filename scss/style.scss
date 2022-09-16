@@ -21,26 +21,74 @@
       flex-wrap: wrap;
       max-width: 1040px;
       margin: 0 auto 50px;
-      & .input_shell{
+      & .checkbox{
          flex: 1 1 250px;
-         font-size: 20px;
-         font-weight: 300;
-         text-transform: uppercase;
+         position: relative;
          text-align: center;
-         color: #6c757d;
          max-width: 310px;
          min-width: 300px;
          margin: 10px 5px;
-         padding: 15px 0;
          cursor: pointer;
-         border: 1px solid #6c757d;
+         border: 2px solid #6c757d;
          border-radius: 50px;
+         overflow: hidden;
+         transition: all 0.3s linear;
+         & .tick{
+            position: absolute;
+            top: 12px;
+            right: 15px;
+            display: block;
+            width: 27px;
+            height: 22px;
+            background-image: url(../img/check.svg);
+            background-repeat: no-repeat;
+            background-position: center;
+            transition: all 0.3s linear;
+            opacity: 0;
+
+         }
+         &_inner{
+            display: block;
+            font-size: 20px;
+            font-weight: 400;
+            letter-spacing: -1px;
+            text-transform: uppercase;
+            padding: 15px 0;
+            color: #6c757d;
+            cursor: pointer;
+            transition: all 0.3s linear;
+            & span{
+               transition: all 0.3s linear;
+            }
+         }
          & input{
             display: none;
+            &:checked+.checkbox_inner{
+               background: #1d3557;
+               color: #edf2f4;
+               & span{
+                  transform: translateX(-15px);
+               }
+               &~.tick{
+                  opacity: 1;
+               }
+            }
+            &+.checkbox_inner{
+               display: flex;
+               align-items: center;
+               justify-content: center;
+               user-select: none;
+            }
          }
       }
-      & .input_shell:last-child{
+      & .checkbox:last-child{
          margin: 10px 60px;
+      }
+      & .checkbox:hover{
+         border-color: #1d3557;
+         & .checkbox_inner{
+            color: #1d3557;
+         }
       }
    }
    &_inputs{
@@ -53,12 +101,20 @@
          flex: 1 1 470px;
          font-size: 18px;
          margin: 0 5px 10px;
-         padding: 5px 10px;
+         padding: 10px 10px;
          background: #edf2f4;
-         border: none;
+         border: 1px solid transparent;
+         border-bottom: 1px solid #adb5bd;
+         border-radius: 2px;
          outline: none;
          cursor: text;
-         border-bottom: 1px solid #adb5bd;
+         transition: all 0.3s linear;
+         &:hover{
+            border-bottom-color: #6c757d;
+         }
+         &:focus{
+            border-color: #6c757d;
+         }
          &::placeholder{
             color: #adb5bd;
          }
@@ -86,6 +142,7 @@
    border: none;
    border-radius: 2px;
    cursor: pointer;
+   transition: all 0.3s linear;
    &:hover{
       background: #ba181b;
    }
@@ -104,11 +161,14 @@
    .form_checkboxes{
       margin-bottom: 25px;
    }
-   .form_checkboxes .input_shell{
+   .form_checkboxes .checkbox_inner{
       font-size: 18px;
    }
-   .form_checkboxes .input_shell:last-child{
+   .form_checkboxes .checkbox:last-child{
       margin: 10px 5px;
+   }
+   .tick{
+      background-size: 80%;
    }
    .form_inputs{
       margin-bottom: 25px;
